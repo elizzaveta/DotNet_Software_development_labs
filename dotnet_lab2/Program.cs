@@ -7,7 +7,17 @@ namespace dotnet_lab_2
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Welcome to composite pattern. ");
+            Console.WriteLine("~~Welcome to composite pattern~~");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+
+            Console.WriteLine("~~Example 1~~");
+            test_example_of_structure();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+            Console.WriteLine("~~Example 2~~");
+
+
             Console.WriteLine("Enter some text. Enter 'q' in new line to quit.\n");
 
             TextComposite text2 = new TextComposite('t');
@@ -24,12 +34,15 @@ namespace dotnet_lab_2
 
             } while (user_text != "q");
 
+          
+
+            Console.WriteLine("\n\n~~Your text: \n" + text2.get_text() + "\n");
 
 
-            Console.WriteLine("\n\nYour text: \n" + text2.get_text()+"\n");
+            Console.WriteLine("\n~~Components: \n" + text2.get_explained_text() + "\n");
 
 
-
+            
         }
         public static TextComposite parse_paragraf(string user_paragraf)
         {

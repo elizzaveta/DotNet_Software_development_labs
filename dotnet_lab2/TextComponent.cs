@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace dotnet_lab_2
 {
-    abstract class TextComponent 
+    abstract class TextComponent
     {
         public abstract string get_text();
+        public abstract string get_explained_text();
+
     }
 
     class LeafComponent_word_separators : TextComponent
@@ -21,6 +23,11 @@ namespace dotnet_lab_2
         public override string get_text()
         {
             return value;
+
+        }
+        public override string get_explained_text()
+        {
+            return (" word: " + value);
         }
     }
 

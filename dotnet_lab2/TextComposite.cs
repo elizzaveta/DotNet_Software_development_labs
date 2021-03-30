@@ -22,10 +22,37 @@ namespace dotnet_lab_2
         public override string get_text()
         {
             string result = "";
+
+            
+
+
             for(int i = 0; i< ListOfComponents.Count; i++)
             {
                 result += ListOfComponents[i].get_text();
                 if (_type!='t' && i+1 != ListOfComponents.Count && ListOfComponents[i+1].get_text()!= "," && ListOfComponents[i + 1].get_text() != "." && ListOfComponents[i + 1].get_text() != "!" && ListOfComponents[i + 1].get_text() != "?")
+                    result += " ";
+            }
+            if (_type == 'p') result += "\n";
+            return result;
+        }
+        public override string get_explained_text()
+        {
+            string result = "";
+
+            switch (_type)
+            {
+                case 't': result += "\ntext: \n"; break;
+                case 'p': result += "\n-paragraf: "; break;
+                case 's': result += "\n--sentence: \n---"; break;
+            }
+
+
+
+            for (int i = 0; i < ListOfComponents.Count; i++)
+            {
+                //result += ListOfComponents[i].get_text() +"\n";
+                result += ListOfComponents[i].get_explained_text();
+                if (_type != 't' && i + 1 != ListOfComponents.Count && ListOfComponents[i + 1].get_text() != "," && ListOfComponents[i + 1].get_text() != "." && ListOfComponents[i + 1].get_text() != "!" && ListOfComponents[i + 1].get_text() != "?")
                     result += " ";
             }
             if (_type == 'p') result += "\n";
