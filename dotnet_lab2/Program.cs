@@ -6,10 +6,8 @@ namespace dotnet_lab_2
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("~~Welcome to composite pattern~~");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
 
             Console.WriteLine("~~Example 1~~");
             test_example_of_structure();
@@ -37,58 +35,8 @@ namespace dotnet_lab_2
           
 
             Console.WriteLine("\n\n~~Your text: \n" + text2.get_text() + "\n");
-
-
             Console.WriteLine("\n~~Components: \n" + text2.get_explained_text() + "\n");
 
-
-            
-        }
-        public static TextComposite parse_paragraf(string user_paragraf)
-        {
-            TextComposite paragraf = new TextComposite('p');
-            TextComposite sentence = new TextComposite('s');
-            string current_word = "";
-            for(int i = 0; i < user_paragraf.Length; i++)
-            {
-                
-                if ((user_paragraf[i] == '.' || user_paragraf[i] == ',' || user_paragraf[i] == '?' || user_paragraf[i] == '!') && (i + 1 == user_paragraf.Length || user_paragraf[i+1]==' '))
-                {
-                    if (current_word != "")
-                    {
-                        TextComponent word = new LeafComponent_word_separators(current_word);
-                        sentence.AddComponent(word);
-                        current_word = "";
-                    }
-                    sentence.AddComponent(new LeafComponent_word_separators(user_paragraf[i].ToString()));
-                    if (i + 1 == user_paragraf.Length || user_paragraf[i] != ',' )
-                    {
-                        paragraf.AddComponent(sentence);
-                        sentence = new TextComposite('s');
-                    }
-                }
-                else if (i + 1 == user_paragraf.Length)
-                {
-                    current_word += user_paragraf[i];
-                    TextComponent word = new LeafComponent_word_separators(current_word);
-                    sentence.AddComponent(word);
-                    current_word = "";
-
-                    paragraf.AddComponent(sentence);
-                    sentence = new TextComposite('s');
-                }
-                else if(user_paragraf[i] == ' ' && current_word != "")
-                {
-                    TextComponent word = new LeafComponent_word_separators(current_word);
-                    sentence.AddComponent(word);
-                    current_word = "";
-                }
-                else if (user_paragraf[i] != ' ')
-                {
-                    current_word += user_paragraf[i];
-                }
-            }
-            return paragraf;
         }
         public static void test_example_of_structure()
         {
@@ -123,6 +71,55 @@ namespace dotnet_lab_2
 
             TextComponent text = new TextComposite('t', paragraf1, paragraf2);
             Console.WriteLine("Text : \n" + text.get_text());
+        }
+
+
+
+        public static TextComposite parse_paragraf(string user_paragraf)
+        {
+            TextComposite paragraf = new TextComposite('p');
+            TextComposite sentence = new TextComposite('s');
+            string current_word = "";
+            for (int i = 0; i < user_paragraf.Length; i++)
+            {
+
+                if ((user_paragraf[i] == '.' || user_paragraf[i] == ',' || user_paragraf[i] == '?' || user_paragraf[i] == '!') && (i + 1 == user_paragraf.Length || user_paragraf[i + 1] == ' '))
+                {
+                    if (current_word != "")
+                    {
+                        TextComponent word = new LeafComponent_word_separators(current_word);
+                        sentence.AddComponent(word);
+                        current_word = "";
+                    }
+                    sentence.AddComponent(new LeafComponent_word_separators(user_paragraf[i].ToString()));
+                    if (i + 1 == user_paragraf.Length || user_paragraf[i] != ',')
+                    {
+                        paragraf.AddComponent(sentence);
+                        sentence = new TextComposite('s');
+                    }
+                }
+                else if (i + 1 == user_paragraf.Length)
+                {
+                    current_word += user_paragraf[i];
+                    TextComponent word = new LeafComponent_word_separators(current_word);
+                    sentence.AddComponent(word);
+                    current_word = "";
+
+                    paragraf.AddComponent(sentence);
+                    sentence = new TextComposite('s');
+                }
+                else if (user_paragraf[i] == ' ' && current_word != "")
+                {
+                    TextComponent word = new LeafComponent_word_separators(current_word);
+                    sentence.AddComponent(word);
+                    current_word = "";
+                }
+                else if (user_paragraf[i] != ' ')
+                {
+                    current_word += user_paragraf[i];
+                }
+            }
+            return paragraf;
         }
     }
 }

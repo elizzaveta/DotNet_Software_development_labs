@@ -23,9 +23,6 @@ namespace dotnet_lab_2
         {
             string result = "";
 
-            
-
-
             for(int i = 0; i< ListOfComponents.Count; i++)
             {
                 result += ListOfComponents[i].get_text();
@@ -35,6 +32,15 @@ namespace dotnet_lab_2
             if (_type == 'p') result += "\n";
             return result;
         }
+        public void AddComponent(TextComponent new_component)
+        {
+            ListOfComponents.Add(new_component);
+        }
+        public void RemoveComponents()
+        {
+            ListOfComponents.Clear();
+        }
+
         public override string get_explained_text()
         {
             string result = "";
@@ -45,12 +51,8 @@ namespace dotnet_lab_2
                 case 'p': result += "\n-paragraf: "; break;
                 case 's': result += "\n--sentence: \n---"; break;
             }
-
-
-
             for (int i = 0; i < ListOfComponents.Count; i++)
             {
-                //result += ListOfComponents[i].get_text() +"\n";
                 result += ListOfComponents[i].get_explained_text();
                 if (_type != 't' && i + 1 != ListOfComponents.Count && ListOfComponents[i + 1].get_text() != "," && ListOfComponents[i + 1].get_text() != "." && ListOfComponents[i + 1].get_text() != "!" && ListOfComponents[i + 1].get_text() != "?")
                     result += " ";
@@ -58,13 +60,6 @@ namespace dotnet_lab_2
             if (_type == 'p') result += "\n";
             return result;
         }
-        public void AddComponent(TextComponent new_component) {
-            ListOfComponents.Add(new_component);
-        }
-        public void RemoveComponents() {
-            ListOfComponents.Clear();
-        }
-        
     }
 
 
