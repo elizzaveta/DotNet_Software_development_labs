@@ -1,6 +1,6 @@
 # lab1
 
-Design patterns. Creational patterns. Builder
+## Design patterns. Creational patterns. Builder
 
 Реалізувати задачу комплектації автомобіля деякого виробника. В
 залежності від марки та моделі комплектація може включати, наприклад,
