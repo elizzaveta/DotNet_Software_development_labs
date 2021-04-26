@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# dotNet_Software_Development_labs
-=======
 # lab3
 
 ## Design patterns. Behavioral patterns. Chain of responsibility
@@ -10,4 +7,4 @@
 відділення пошти (при необхідності)). Необхідно забезпечити наступні
 види перевірки: коректність ведених даних по кожному елементу,
 наявність SQL-ін’єкцій, використання XSS-вразливостей.
->>>>>>> main
+
