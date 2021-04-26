@@ -1,3 +1,6 @@
-# dotNet_Software_Development_labs
+# lab2
 
-Laboratory works covering design patterns (creational, structural, behavioral patterns), ..
+## Design patterns. Structural patterns. Composite
+
+Розробити структуру зберігання тексту, який може складатися з
+абзаців, речень, лістингів, заголовків, слів, знаків пунктуації тощо.
