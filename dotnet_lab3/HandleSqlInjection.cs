@@ -13,7 +13,7 @@ namespace dotnet_lab_3
             bool should_order_be_handled = check_object_ifNeededToHandle(order);
             if (should_order_be_handled)
             {
-                return "HandleSqlInjection: Failed";
+                return "Handle Sql Injection: Failed";
             }
             else
             {
@@ -22,13 +22,13 @@ namespace dotnet_lab_3
         }
         private bool check_object_ifNeededToHandle(ClientData order)
         {
-            bool b1 = handle_dataField(order.first_name.value);
-            bool b2 = handle_dataField(order.last_name.value);
-            bool b3 = handle_dataField(order.petronym.value);
-            bool b5 = handle_dataField(order.delivery_address.value);
-            bool b6 = handle_dataField(order.delivery_type.value);
+            if (handle_dataField(order.first_name)) return true;
+            if (handle_dataField(order.last_name)) return true;
+            if (handle_dataField(order.petronym)) return true;
+            if (handle_dataField(order.delivery_address)) return true;
+            if (handle_dataField(order.delivery_type)) return true;
 
-            return (b1 || b2 || b3 || b5 || b6);
+            return false;
 
         }
         private bool handle_dataField(string value)

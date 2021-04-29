@@ -14,7 +14,7 @@ namespace dotnet_lab_3
             bool should_order_be_handled = check_object_ifNeededToHandle(order);
             if (should_order_be_handled)
             {
-                return "HandleXssVulnerabilities: Failed";
+                return "Handle Xss Vulnerabilities: Failed";
             }
             else
             {
@@ -23,13 +23,13 @@ namespace dotnet_lab_3
         }
         private bool check_object_ifNeededToHandle(ClientData order)
         {
-            bool b1 = XSS_injection_detect(order.first_name.value);
-            bool b2 = XSS_injection_detect(order.last_name.value);
-            bool b3 = XSS_injection_detect(order.petronym.value);
-            bool b5 = XSS_injection_detect(order.delivery_address.value);
-            bool b6 = XSS_injection_detect(order.delivery_type.value);
+            if (XSS_injection_detect(order.first_name)) return true;
+            if (XSS_injection_detect(order.last_name)) return true;
+            if (XSS_injection_detect(order.petronym)) return true;
+            if (XSS_injection_detect(order.delivery_address)) return true;
+            if (XSS_injection_detect(order.delivery_type)) return true;
 
-            return (b1 || b2 || b3 || b5 || b6);
+            return false;
 
         }
         private bool XSS_injection_detect(string value)

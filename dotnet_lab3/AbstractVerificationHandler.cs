@@ -13,10 +13,6 @@ namespace dotnet_lab_3
         public VerificationHandler SetNext(VerificationHandler handler)
         {
             this._nextHandler = handler;
-
-            // Возврат обработчика отсюда позволит связать обработчики простым
-            // способом, вот так:
-            // monkey.SetNext(squirrel).SetNext(dog);
             return handler;
         }
 
@@ -28,7 +24,7 @@ namespace dotnet_lab_3
             }
             else
             {
-                return null;
+                return "Data has passed validation.";
             }
         }
     }
