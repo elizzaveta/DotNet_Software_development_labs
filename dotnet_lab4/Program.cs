@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Personnel Number
-
 
 namespace dotnet_lab_4
 {
